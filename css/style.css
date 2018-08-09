@@ -1,0 +1,36 @@
+body{
+    background: #006e8c;
+}
+nav{
+    background-color: #033076 !important;
+}
+
+nav .brand-logo {
+    
+    padding: 0 150px;
+}
+
+nav ul a{
+    color:#d39c2f;
+    font-weight: 600;
+}
+
+.btn, .btn-large, .btn-small {
+    text-decoration: none;
+    color: #fff;
+    background-color:#d39c2f;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+}
+.container{
+    background-color: #d4e3fc;
+    position: absolute;
+    top: 80px; left: 8px; right: 8px;
+    width: 95%; height:90%;
+    background-position: center;
+    
+   
+}
