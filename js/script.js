@@ -1,3 +1,5 @@
+//Script para ctivar el menu lateral izquierdo con materialize 
+
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, {
@@ -15,6 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Or with jQuery
 
-  $(document).ready(function(){
+  /*$(document).ready(function(){
     $('.sidenav').sidenav();
-  });
+  });*/
+/*Para Drowbo*/ 
+ /*document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {});
+  });*/
+  $(".dropdown-trigger").dropdown();
+  
+
+  // Or with jQuery
+
+  /*$('.dropdown-trigger').dropdown();*/

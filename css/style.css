@@ -1,6 +1,13 @@
 body{
     background: #006e8c;
 }
+h4 ,h6{
+    color: #033076 !important;
+    font-weight: bold !important;
+}
+
+
+/*Cambios de colores a partir de materialize*/
 nav{
     background-color: #033076 !important;
 }
@@ -19,18 +26,34 @@ nav ul a{
     text-decoration: none;
     color: #fff;
     background-color:#d39c2f;
-    text-align: center;
-    letter-spacing: .5px;
-    -webkit-transition: background-color .2s ease-out;
-    transition: background-color .2s ease-out;
-    cursor: pointer;
+
 }
+
+/*Estilo del contendor claro*/
 .container{
     background-color: #d4e3fc;
-    position: absolute;
-    top: 80px; left: 8px; right: 8px;
+    position: relative;
+    top: 30px; left: 8px; right: 8px;
     width: 95%; height:90%;
     background-position: center;
-    
-   
+}
+.row{
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+.star{
+    padding-left: 42% !important;
+    size: 50px;
+    color:#d39c2f;
+
+}
+.badge{
+    color: #2792f3 !important;
+    font-weight: 500;
+}
+
+a.collection-item{
+    color: #000000 !important;
+    font-weight: bold;
 }
