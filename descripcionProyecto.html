@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crear Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+     <script src="js/script.js"></script>
+   
+</head>
+<body>
+
+    <header>
+            <nav><!--Menu ejemplo materialize-->
+                    <div class="nav-wrapper">
+                      <a href="#!" class="brand-logo">Logo</a>
+                      <!--Icono para movil materialize-->
+                      <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                          <i class="material-icons">menu</i></a>
+                  
+                      <ul class="right hide-on-med-and-down">
+                            <li><a href="sass.html">Inicio</a></li>
+                            <li><a href="badges.html">Perfil</a></li>
+                            <li><a href="collapsible.html">Proyetos</a></li>
+                          
+                            <!--Botones menu materialize-->
+                          
+                            <li><a class="waves-effect waves-light btn">Salir</a></li>
+                          </ul>
+                    </div>
+                  </nav>
+                <!--Menu que sale lado izquierdo con materialize-->
+                  <ul class="sidenav" id="mobile-demo">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Perfil</a></li>
+                    <li><a href="#">Proeyctos</a></li>
+                    <!--<li><a href="mobile.html">Mobile</a></li>-->
+                    <!--<li><a class="waves-effect waves-light btn">Button</a></li>-->
+                    <li><a class="waves-effect waves-light btn">Salir</a></li>
+                  </ul>
+
+            
+    </header>
+    <div class="container">
+            <div class="row">
+                  
+
+              <section>
+                  <h4>Crear Proyecto</h4>
+                  <p>Llena los campos para registrar el nuevo proyecto</p><br/>
+                  <!--Listas desplegables-->
+                  <div class="row">
+                      <form class="col s12 m12 l12">
+            
+                        <div class="row">
+                          <div class="input-field col s12 m12 l12">
+                            <input  id="first_name" type="text" class="validate">
+                            <label for="disabled">Nombre</label>
+                          </div>
+                          <div class="input-field col s12 m12 l12">
+                              <textarea id="textarea1" class="materialize-textarea"></textarea>
+                              <label for="textarea1">Descripción</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                             
+                          <div class="input-field col s6">
+                            <p>Seleccione la categoria del proyecto</p>
+                              <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Categoria
+                                  <i class="material-icons right">arrow_drop_down</i></a>
+                              <ul id="categoria" class="dropdown-content">
+                                <li><a href="#!">Académico</a></li>
+                                <li><a href="#!">Cultural</a></li>
+                                <li><a href="#!">Social</a></li>
+                              </ul>
+                          </div>
+                          <div class="input-field col s6">
+                            <p>Seleccione al público que va dirigido</p>
+                              <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Público
+                                  <i class="material-icons right">arrow_drop_down</i></a>
+                              <ul id="categoria" class="dropdown-content">
+                                <li><a href="#!">Académico</a></li>
+                                <li><a href="#!">Cultural</a></li>
+                                <li><a href="#!">Social</a></li>
+                              </ul>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            Ingresar Tags o temáticas relacionadas</br></br>
+                            <div class="file-field input-field">
+                                <div>
+                                  <a class="waves-effect waves-light btn">Ingresar</a>
+                                </div>
+                                <div class="file-path-wrapper">
+                                  <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="col s12 center-align">
+                              <a class="btn-large ">Guardar</a>
+                            </div>
+                          
+                        </div>
+                      </form>
+                    </div>    
+              </section>
+
+            </div>
+
+</body>
+</html>
