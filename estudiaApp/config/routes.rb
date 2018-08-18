@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  resources :user_types
+  resources :spectators
+  resources :categories
+  resources :status_activities
+  resources :type_activities
+  resources :tags
+  resources :universities
   devise_for :users
   resources :articles  do #asume u controlador llamado article para recibir peticiones
   	resources :comments, only: [:create, :update, :destroy, :show]

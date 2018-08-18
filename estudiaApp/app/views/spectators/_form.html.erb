@@ -1,0 +1,22 @@
+<%= form_with(model: spectator, local: true) do |form| %>
+  <% if spectator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spectator.errors.count, "error") %> prohibited this spectator from being saved:</h2>
+
+      <ul>
+      <% spectator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_spectator %>
+    <%= form.text_field :nombre_spectator, id: :spectator_nombre_spectator %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spectators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre spectator</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spectators.each do |spectator| %>
+      <tr>
+        <td><%= spectator.nombre_spectator %></td>
+        <td><%= link_to 'Show', spectator %></td>
+        <td><%= link_to 'Edit', edit_spectator_path(spectator) %></td>
+        <td><%= link_to 'Destroy', spectator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spectator', new_spectator_path %>

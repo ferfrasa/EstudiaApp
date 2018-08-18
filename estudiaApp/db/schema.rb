@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180817205655) do
+ActiveRecord::Schema.define(version: 20180818053418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20180817205655) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "nombre_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "article_id"
@@ -33,6 +39,42 @@ ActiveRecord::Schema.define(version: 20180817205655) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "spectators", force: :cascade do |t|
+    t.string "nombre_spectator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "status_activities", force: :cascade do |t|
+    t.string "nombre_status_activity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "nombre_tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "type_activities", force: :cascade do |t|
+    t.string "nombre_type_activity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string "nombre_university"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_types", force: :cascade do |t|
+    t.string "nombre_user_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,2 @@
+class Spectator < ApplicationRecord
+end
