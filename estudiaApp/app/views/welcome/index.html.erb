@@ -1,0 +1,17 @@
+<h1>Hola Mundo  </h1>
+
+<%= [1,2,3,4,5].each do |number| %>
+    <p>Numero: <%= number *2 %> </p>
+<%end%>
+<% mundo ="urile" %>
+
+<%= "Hola #{mundo}" %>
+
+ <% if user_signed_in? %>
+        <%= current_user.email %>
+ <%end%> 
+
+
+<%= link_to "Recurso con post" ,"/welcome/index",  method: :post  %>
+ 
+
