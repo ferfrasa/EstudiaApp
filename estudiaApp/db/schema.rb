@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180818053418) do
+ActiveRecord::Schema.define(version: 20180825005727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,23 @@ ActiveRecord::Schema.define(version: 20180818053418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "cover_file_name"
+    t.string "cover_content_type"
+    t.bigint "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.string "state", default: "in_draft"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "nombre_category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_as", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +51,15 @@ ActiveRecord::Schema.define(version: 20180818053418) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "has_category_as", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "category_a_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_has_category_as_on_article_id"
+    t.index ["category_a_id"], name: "index_has_category_as_on_category_a_id"
   end
 
   create_table "spectators", force: :cascade do |t|
@@ -89,9 +110,9 @@ ActiveRecord::Schema.define(version: 20180818053418) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name"
-    t.string "permission_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "permission_level", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,4 +120,6 @@ ActiveRecord::Schema.define(version: 20180818053418) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "has_category_as", "articles"
+  add_foreign_key "has_category_as", "category_as"
 end

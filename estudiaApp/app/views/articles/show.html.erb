@@ -1,5 +1,8 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+<div class="field">
+<%= image_tag @article.cover.url(:mini) %> 
+</div>
 
 <p>
 	
@@ -9,6 +12,11 @@
 <% unless @article.user.nil? %>
 <p>Escrito por <%= @article.user.email %></p>
 <%end%>
+<div>
+ <% @article.category_as.each do |category_a| %>
+   <%= link_to category_a.name , category_a, style:"color:#{category_a.color};" %>
+ <%end%>
+</div>
 
 <h2>Coemtarios </h2>
  <%= render "comments/form" %>

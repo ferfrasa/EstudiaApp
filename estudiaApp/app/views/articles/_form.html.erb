@@ -9,9 +9,22 @@
   <div>
     <%= f.text_field :title, placeholder: "Titulo" %>
   </div>
+  <div class="field">
+  Portada:<%= f.file_field :cover %>
+  </div>
   <div>
   	<%= f.text_area :body , placeholder: "Escribe aquí el articulo" %>
   </div>
+
+  <div><label>Categorias</label>
+     <% @category_as.each do |category|   %>
+       <div>
+       <%= check_box_tag "article[category_as][]", category.id %> <%= category.name %>
+       </div>
+     <%end%>
+  </div>
+  <div>
+       
   <div>
   	<%= f.submit "guardar" %>
   </div>

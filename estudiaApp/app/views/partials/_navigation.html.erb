@@ -1,17 +1,22 @@
  <header>
   <nav><!--Menu ejemplo materialize-->
           <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
+           <%= link_to "Logo", root_path, class:"brand-logo" %>
+          <!--<a href="#!" class="brand-logo">Logo</a>-->
             <!--Icono para movil materialize-->
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                 <i class="material-icons">menu</i></a>
         
             <ul class="right hide-on-med-and-down">
+                  
+                  <li> <%= link_to "Articulos", articles_path  %></li>
+                   <% @category_as.each do |category|%>
                   <li>
-                    <%= link_to "Inicio", root_path %>
+                 
+                    <%= link_to category.name, category  %>
                   
                   </li>
-                  <li><a href="badges.html">Proyectos</a></li>
+                  <%end%>
                   <li><a href="collapsible.html">Javascript</a></li>
                   <li><a href="mobile.html">Mobile</a></li>
                    <li><a href="mobile.html">Mobile</a></li>
