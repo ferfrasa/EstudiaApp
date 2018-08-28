@@ -1,47 +1,35 @@
  <header>
   <nav><!--Menu ejemplo materialize-->
-          <div class="nav-wrapper">
-           <%= link_to "Logo", root_path, class:"brand-logo" %>
-          <!--<a href="#!" class="brand-logo">Logo</a>-->
+    <div class="nav-wrapper">
+      <%= link_to "Logo", root_path, class:"brand-logo" %>
             <!--Icono para movil materialize-->
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                <i class="material-icons">menu</i></a>
-        
-            <ul class="right hide-on-med-and-down">
-                  
-                  <li> <%= link_to "Articulos", articles_path  %></li>
-                   <% @category_as.each do |category|%>
-                  <li>
-                 
-                    <%= link_to category.name, category  %>
-                  
-                  </li>
-                  <%end%>
-                  <li><a href="collapsible.html">Javascript</a></li>
-                  <li><a href="mobile.html">Mobile</a></li>
-                   <li><a href="mobile.html">Mobile</a></li>
-                  <!--Botones menu materialize-->
-                
-                  <% if user_signed_in? %>
-                     <li>
-                        <%= current_user.email %>
-                      </li>
-                      <li>  
-                        <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"waves-effect waves-light btn" %>
-                      </li>
-                  <%else%>
-                       <li>
-                        <%= link_to "Iniciar Sesion", new_user_session_path,class:"waves-effect waves-light btn" %>
-                      </li>
-                      <li>  
-                        <%= link_to "Crear Cuenta", new_user_registration_path,class:"waves-effect waves-light btn" %>
-                      </li>
-                  <%end%>
-                </ul>
-          </div>
-        </nav>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+       
+        <li><a href="#">La APP</a></li>
+        <li><a href="#">Contacto</a></li>
+          <!--Botones menu materialize-->
+        <% if user_signed_in? %>
+          <li> <%= link_to "Articulos", articles_path  %></li>
+             <% @category_as.each do |category|%>
+              <li><%= link_to category.name, category  %></li>
+             <%end%>
+          <li><%= link_to  current_user.email, current_user %></li>
+          <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, 
+          class:"waves-effect waves-light btn" %></li>
+        <%else%>
+          <li><%= link_to "Iniciar Sesion", new_user_session_path,
+          class:"waves-effect waves-light btn" %></li>
+          <li><%= link_to "Crear Cuenta", new_user_registration_path,
+          class:"waves-effect waves-light btn" %></li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
       <!--Menu que sale lado izquierdo con materialize-->
-        <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav" id="mobile-demo">
           <li><a href="sass.html">Sass</a></li>
           <li><a href="badges.html">Components</a></li>
           <li><a href="collapsible.html">Javascript</a></li>
@@ -52,7 +40,5 @@
               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"waves-effect waves-light btn" %>
             </li>
           <%end%>
-        </ul>
-
-  
+    </ul>
 </header>
