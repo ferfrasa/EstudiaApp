@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180828003833) do
+ActiveRecord::Schema.define(version: 20180830022359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 20180828003833) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["university_id"], name: "index_students_on_university_id"
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "nombre_tag"
     t.datetime "created_at", null: false
@@ -123,6 +132,10 @@ ActiveRecord::Schema.define(version: 20180828003833) do
     t.datetime "updated_at", null: false
     t.integer "permission_level", default: 1
     t.bigint "user_type_id"
+    t.string "cover_file_name"
+    t.string "cover_content_type"
+    t.bigint "cover_file_size"
+    t.datetime "cover_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
@@ -133,6 +146,8 @@ ActiveRecord::Schema.define(version: 20180828003833) do
   add_foreign_key "comments", "users"
   add_foreign_key "has_category_as", "articles"
   add_foreign_key "has_category_as", "category_as"
+  add_foreign_key "students", "universities"
+  add_foreign_key "students", "users"
   add_foreign_key "teachers", "universities"
   add_foreign_key "teachers", "users"
   add_foreign_key "users", "user_types"

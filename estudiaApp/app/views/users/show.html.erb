@@ -1,4 +1,29 @@
-<%= @user.email %>
 
 
-<%= render :partial => 'teachers/form', :object => @teachers %>
+   <%= @user.sign_in_count %>
+      <% if @user.sign_in_count == 0 && @user.user_type_id == 5 %>                                                                                       
+        <%= render :partial => 'teachers/form', :object => @teachers %>
+   <%end%>
+
+   <%= @user.sign_in_count %>
+      <% if @user.sign_in_count == 0 && @user.user_type_id == 4 %>                                                                                       
+        <%= render :partial => 'students/form', :object => @students %>
+   <%end%>
+<div class="field">
+<%= image_tag @user.cover.url(:mini) %> 
+</div>
+
+
+<%=  @user.name %> <br/>
+
+<%=  @user.email %><br/>
+
+<%=  @user.user_type.nombre_user_type %>
+
+<br/>
+
+<%= link_to "Editar Usuario", edit_user_registration_path %>
+
+                                                                                     
+ 
+

@@ -1,3 +1,6 @@
+<div id="dialog-form" title="Guardar Universidad">
+  <p class="validateTips">Selecciona la universidad a la que perteneces </p>
+
 <%= form_with(model: @teacher, local: true) do |form| %>
   <% if @teacher.errors.any? %>
     <div id="error_explanation">
@@ -10,9 +13,15 @@
       </ul>
     </div>
   <% end %>
+  <fieldset>
    <%= form.collection_select(:university_id, University.all, :id, :nombre_university) %>
-
-  <div class="actions">
-    <%= form.submit %>
+    </fieldset>
+    <h6>Si no encuentras tu universidad registra una nueva en el botón Crear</h6>
+    <div class="actions">  
+  <%= form.submit :value => "Guardar Universidad", :class => 'ui-button ui-corner-all ui-widget', :style=> 'position:absolute; top:250px', :tabindex=> '-1' %>
+   
+  </div>
+   <button class = 'ui-button ui-corner-all ui-widget' 
+   style="position:absolute; top:250px; right:20px">Crear Universidad</button> 
   </div>
 <% end %>

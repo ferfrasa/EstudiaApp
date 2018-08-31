@@ -2,7 +2,15 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+  
+  <div class="field">
+       Foto de perfil:<%= f.file_field :cover %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", :required => true %>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -29,6 +37,11 @@
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+  <div><label>Elige un tipo de usuario</label>
+       <div>
+    <%= f.collection_select(:user_type_id, UserType.where.not(id: 1 ).where.not(id: 6), :id, :nombre_user_type) %>
+    
   </div>
 
   <div class="actions">

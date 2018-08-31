@@ -15,3 +15,38 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$( function() {
+    var dialog, form,
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: true,
+      closeOnEscape: false,
+      height: 400,
+      width: 350,
+      modal: true,
+      dialogClass: "no-close",
+      open: function(event, ui) { jQuery('.ui-dialog-titlebar-close').hide(); },
+    
+  
+      buttons: {
+        /*"Create an account": addUser,*/
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+  
+    /*form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });*/
+  
+    $( "#create-user" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+  } );
+  

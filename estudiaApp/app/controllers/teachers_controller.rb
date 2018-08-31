@@ -28,7 +28,8 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+         sign_in_count
+        format.html { redirect_to current_user, notice: 'Universidad Agregada' }
         format.json { render :show, status: :created, location: @teacher }
       else
         format.html { render :new }
@@ -70,5 +71,9 @@ class TeachersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
       params.require(:teacher).permit(:university_id)
+    end
+    def sign_in_count
+      puts "entro 2"
+      current_user.increment!(:sign_in_count)
     end
 end

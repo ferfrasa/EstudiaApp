@@ -3,9 +3,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create,:update]
   before_action :authenticate_user! , only: [:create,:new,:show]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -45,6 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
+     puts "emtro2"
      devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
    end
    
@@ -53,19 +54,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def configure_permitted_parameters
      # Permit the `subscribe_newsletter` parameter along with the other
      # sign up parameters.
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_type_id])
+     puts "emtro"
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_type_id,:name,:cover])
+     
    end
 
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+   def configure_account_update_params
+     devise_parameter_sanitizer.permit(:account_update, keys: [:user_type_id,:name,:cover])
+   end
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
   #   super(resource)
-     current_user
+      current_user
    end
 
   # The path used after sign up for inactive accounts.

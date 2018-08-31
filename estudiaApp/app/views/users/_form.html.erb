@@ -1,3 +1,7 @@
+<% modelo =  %>
+<div id="dialog-form" title="Create new user">
+  <p class="validateTips">Selecciona la universidad a la que perteneces </p>
+
 <%= form_with(model: @teacher, local: true) do |form| %>
   <% if @teacher.errors.any? %>
     <div id="error_explanation">
@@ -10,9 +14,12 @@
       </ul>
     </div>
   <% end %>
-  <%= f.collection_select(:university_id, University.all, :id, :nombre_university) %>
+  <fieldset>
+   <%= form.collection_select(:university_id, University.all, :id, :nombre_university) %>
 
   <div class="actions">
-    <%= form.submit %>
+  <%= form.submit :value => "Visible Button Text", :class => 'class_name' %>
+    <% #form.submit , :style => 'position:absolute; top:-1000px; tabindex: -1;' %>
+    </fieldset>
   </div>
 <% end %>

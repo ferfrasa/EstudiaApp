@@ -4,6 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", :required => true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -20,12 +25,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-   <div><label>Categorias</label>
-  <% #@user_types.each do |user_type|   %>
+   <div><label>Elige un tipo de usuario</label>
        <div>
-      
-     <!--  </div>-->
-    <%= f.collection_select(:user_type_id, UserType.all, :id, :nombre_user_type) %>
+    <%= f.collection_select(:user_type_id, UserType.where.not(id: 1 ).where.not(id: 6), :id, :nombre_user_type) %>
     
   </div>
 

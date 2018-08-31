@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :students
   resources :teachers
   resources :category_as
   resources :user_types
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   resources :tags
   resources :universities
   
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',sessions: "users/sessions" }
+  
   get 'users/:id' => 'users#show', as: :user
   #devise_for :users
   resources :articles  do #asume u controlador llamado article para recibir peticiones
