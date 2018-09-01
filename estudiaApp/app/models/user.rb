@@ -21,8 +21,8 @@ class User < ApplicationRecord
   include PermissionsConcern
 
   accepts_nested_attributes_for :teachers
+  accepts_nested_attributes_for :students
 
-
- 
+  
             
 end

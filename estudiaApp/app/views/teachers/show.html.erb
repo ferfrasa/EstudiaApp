@@ -1,5 +1,21 @@
+
+
+
+
 <p id="notice"><%= notice %></p>
 <% @teacher.university_id %>
+<%= puts @teacher.inspect %>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<p>
+  <strong>User:</strong>
+  <%= @teacher.user_id %>
+</p>
+
+<p>
+  <strong>University:</strong>
+  <%= @teacher.university %>
+</p>
+
+
+
+

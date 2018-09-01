@@ -10,6 +10,8 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    puts "entro a teacher"
+    #@teacher =Teacher.find(user_id: current_user.id)
   end
 
   # GET /teachers/new
@@ -73,7 +75,6 @@ class TeachersController < ApplicationController
       params.require(:teacher).permit(:university_id)
     end
     def sign_in_count
-      puts "entro 2"
       current_user.increment!(:sign_in_count)
     end
 end

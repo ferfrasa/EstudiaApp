@@ -1,16 +1,16 @@
+<% puts "entro aca en show " %>
 
-
-   <%= @user.sign_in_count %>
-      <% if @user.sign_in_count == 0 && @user.user_type_id == 5 %>                                                                                       
+  
+   <% if (@user.sign_in_count == 0 && @user.user_type_id == 5) || (@user.user_type_id == 5 && !@hayTeacher) %>                                                                                       
         <%= render :partial => 'teachers/form', :object => @teachers %>
    <%end%>
 
-   <%= @user.sign_in_count %>
-      <% if @user.sign_in_count == 0 && @user.user_type_id == 4 %>                                                                                       
+   <% if(@user.sign_in_count == 0 && @user.user_type_id == 4) || (@user.user_type_id == 4 && !@hayStudent)  %>                                                                                       
         <%= render :partial => 'students/form', :object => @students %>
    <%end%>
+  
 <div class="field">
-<%= image_tag @user.cover.url(:mini) %> 
+     <%= image_tag @user.cover.url(:mini) %> 
 </div>
 
 
@@ -19,11 +19,9 @@
 <%=  @user.email %><br/>
 
 <%=  @user.user_type.nombre_user_type %>
-
 <br/>
-
-<%= link_to "Editar Usuario", edit_user_registration_path %>
-
-                                                                                     
- 
-
+  <%if  @user.user_type_id == 5 && @hayTeacher %>
+  <%= @universityT.nombre_university  %>
+  <% elsif @user.user_type_id == 4 && @hayStudent %>
+     <%= @university.nombre_university  %>
+<%end%>

@@ -15,7 +15,7 @@
   <% end %>
   <fieldset>
    <%= form.collection_select(:university_id, University.all, :id, :nombre_university) %>
-    </fieldset>
+  </fieldset>
     <h6>Si no encuentras tu universidad registra una nueva en el botón Crear</h6>
     <div class="actions">  
   <%= form.submit :value => "Guardar Universidad", :class => 'ui-button ui-corner-all ui-widget', :style=> 'position:absolute; top:250px', :tabindex=> '-1' %>
