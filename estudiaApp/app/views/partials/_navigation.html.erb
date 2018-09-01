@@ -12,7 +12,7 @@
         <li><a href="#">Contacto</a></li>
           <!--Botones menu materialize-->
         <% if user_signed_in? %>
-          <li> <%= link_to "Articulos", articles_path  %></li>
+          <li> <%= link_to "Proyectos ", projects_path  %></li>
              <% @category_as.each do |category|%>
               <li><%= link_to category.name, category  %></li>
              <%end%>

@@ -1,0 +1,49 @@
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre_project %>
+    <%= form.text_field :nombre_project, id: :project_nombre_project %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion_project %>
+    <%= form.text_area :descripcion_project, id: :project_descripcion_project %>
+  </div>
+
+  <!--<div class="field">
+    <% form.label :califiacion_projeact %>
+    <% form.text_field :califiacion_projeact, id: :project_califiacion_projeact %>
+  </div>-->
+
+  <!--<div class="field">
+    <% form.label :estado_project %>
+    <% form.check_box :estado_project, id: :project_estado_project %>
+  </div>-->
+ 
+  <div class="field">
+    <%= form.label "Elige una categoria del proyecto" %>
+     <%= form.collection_select(:category_id, Category.all, :id, :nombre_category) %>
+     <%= form.text_field :category_id, id: :project_category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Elige el públcio del proyecto" %>
+    <%= form.collection_select(:spectator_id, Spectator.all, :id, :nombre_spectator) %>
+    <%= form.text_field :spectator_id, id: :project_spectator_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

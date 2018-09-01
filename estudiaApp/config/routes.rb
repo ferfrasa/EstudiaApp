@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :projects
+  resources :sellers
+  resources :schools
   resources :students
   resources :teachers
   resources :category_as

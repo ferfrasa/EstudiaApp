@@ -12,7 +12,6 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      super 
-      puts "entro aqui"
       sign_in_count 
    end
 

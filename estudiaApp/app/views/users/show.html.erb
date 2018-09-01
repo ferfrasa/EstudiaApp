@@ -1,12 +1,20 @@
-<% puts "entro aca en show " %>
 
-  
    <% if (@user.sign_in_count == 0 && @user.user_type_id == 5) || (@user.user_type_id == 5 && !@hayTeacher) %>                                                                                       
         <%= render :partial => 'teachers/form', :object => @teachers %>
    <%end%>
 
    <% if(@user.sign_in_count == 0 && @user.user_type_id == 4) || (@user.user_type_id == 4 && !@hayStudent)  %>                                                                                       
         <%= render :partial => 'students/form', :object => @students %>
+   <%end%>
+   <% if (@user.sign_in_count == 0 && @user.user_type_id == 2) %> 
+        <% puts "entro al sell"  %>
+         <% @user.sellers.new %>
+        
+      
+   <%end%>
+   <% if (@user.sign_in_count == 0 && @user.user_type_id == 3) %> 
+   <% puts "entro al ll"  %>
+        <% @user.schools.new %>
    <%end%>
   
 <div class="field">

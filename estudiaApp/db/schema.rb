@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180830022359) do
+ActiveRecord::Schema.define(version: 20180901065553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,33 @@ ActiveRecord::Schema.define(version: 20180830022359) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_has_category_as_on_article_id"
     t.index ["category_a_id"], name: "index_has_category_as_on_category_a_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "nombre_project"
+    t.text "descripcion_project"
+    t.float "califiacion_projeact", default: 0.0
+    t.boolean "estado_project", default: true
+    t.bigint "category_id"
+    t.bigint "spectator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_projects_on_category_id"
+    t.index ["spectator_id"], name: "index_projects_on_spectator_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schools_on_user_id"
+  end
+
+  create_table "sellers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sellers_on_user_id"
   end
 
   create_table "spectators", force: :cascade do |t|
@@ -146,6 +173,10 @@ ActiveRecord::Schema.define(version: 20180830022359) do
   add_foreign_key "comments", "users"
   add_foreign_key "has_category_as", "articles"
   add_foreign_key "has_category_as", "category_as"
+  add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "spectators"
+  add_foreign_key "schools", "users"
+  add_foreign_key "sellers", "users"
   add_foreign_key "students", "universities"
   add_foreign_key "students", "users"
   add_foreign_key "teachers", "universities"

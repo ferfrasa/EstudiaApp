@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_project: MyString
+  descripcion_project: MyText
+  califiacion_projeact: 1.5
+  estado_project: false
+  category: one
+  spectator: one
+
+two:
+  nombre_project: MyString
+  descripcion_project: MyText
+  califiacion_projeact: 1.5
+  estado_project: false
+  category: two
+  spectator: two
