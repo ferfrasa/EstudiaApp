@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180901065553) do
+ActiveRecord::Schema.define(version: 20180901095344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180901065553) do
     t.bigint "spectator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "codigo", default: 5813
     t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["spectator_id"], name: "index_projects_on_spectator_id"
   end
